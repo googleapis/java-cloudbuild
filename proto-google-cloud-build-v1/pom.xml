@@ -10,7 +10,7 @@
   <parent>
     <groupId>com.google.cloud</groupId>
     <artifactId>google-cloud-build-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version><!-- {x-version-update:google-cloud-build:current} -->
+    <version>0.1.0</version><!-- {x-version-update:google-cloud-build:current} -->
   </parent>
   <dependencies>
     <dependency>
