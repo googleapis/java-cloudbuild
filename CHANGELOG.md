@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.2](https://www.github.com/googleapis/java-cloudbuild/compare/v0.1.1...v0.1.2) (2020-01-17)
+
+
+### Dependencies
+
+* update dependency org.threeten:threetenbp to v1.4.1 ([1a55c7b](https://www.github.com/googleapis/java-cloudbuild/commit/1a55c7b0e42e91fddcdc829c1ff567e7ede5c5b9))
+
 ### [0.1.1](https://www.github.com/googleapis/java-cloudbuild/compare/v0.1.0...v0.1.1) (2020-01-07)
 
 
