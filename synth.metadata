@@ -1,5 +1,5 @@
 {
-  "updateTime": "2020-02-03T22:19:38.955893Z",
+  "updateTime": "2020-02-03T22:21:31.202212Z",
   "sources": [
     {
       "generator": {
@@ -13,8 +13,7 @@
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
         "sha": "29d40b78e3dc1579b0b209463fbcb76e5767f72a",
-        "internalRef": "292979741",
-        "log": "29d40b78e3dc1579b0b209463fbcb76e5767f72a\nExpose managedidentities/v1beta1/ API for client library usage.\n\nPiperOrigin-RevId: 292979741\n\na22129a1fb6e18056d576dfb7717aef74b63734a\nExpose managedidentities/v1/ API for client library usage.\n\nPiperOrigin-RevId: 292968186\n\n"
+        "internalRef": "292979741"
       }
     },
     {
