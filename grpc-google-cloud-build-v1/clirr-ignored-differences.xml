@@ -7,19 +7,4 @@
     <className>com/google/cloudbuild/v1/*Grpc</className>
     <field>METHOD_*</field>
   </difference>
-  <difference>
-    <differenceType>7012</differenceType>
-    <className>com/google/cloudbuild/v1/*OrBuilder</className>
-    <method>* get*(*)</method>
-  </difference>
-  <difference>
-    <differenceType>7012</differenceType>
-    <className>com/google/cloudbuild/v1/*OrBuilder</className>
-    <method>boolean contains*(*)</method>
-  </difference>
-  <difference>
-    <differenceType>7012</differenceType>
-    <className>com/google/cloudbuild/v1/*OrBuilder</className>
-    <method>boolean has*(*)</method>
-  </difference>
 </differences>
