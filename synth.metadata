@@ -1,11 +1,18 @@
 {
-  "updateTime": "2020-04-06T22:35:18.111360Z",
+  "updateTime": "2020-04-08T22:53:51.229390Z",
   "sources": [
     {
       "generator": {
         "name": "artman",
         "version": "1.2.0",
         "dockerImage": "googleapis/artman@sha256:ef1a5b367dbe1e37cea1c7c814c801a638473e8dd66f87f4a2b8c2a146013673"
+      }
+    },
+    {
+      "git": {
+        "name": ".",
+        "remote": "https://github.com/googleapis/java-cloudbuild.git",
+        "sha": "a99210486be483cee8a70bb455d296359dd410ca"
       }
     },
     {
