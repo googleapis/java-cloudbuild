@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.1.2](https://www.github.com/googleapis/java-cloudbuild/compare/v1.1.1...v1.1.2) (2020-04-27)
+
+
+### Dependencies
+
+* update dependency com.google.guava:guava-bom to v29 ([#131](https://www.github.com/googleapis/java-cloudbuild/issues/131)) ([f8a5099](https://www.github.com/googleapis/java-cloudbuild/commit/f8a509970b28211531595e743a9579c8725b86e7))
+* update dependency io.grpc:grpc-bom to v1.29.0 ([#145](https://www.github.com/googleapis/java-cloudbuild/issues/145)) ([9080b63](https://www.github.com/googleapis/java-cloudbuild/commit/9080b63eddefbceafde6cffd0776ade99278a2fd))
+* update dependency org.threeten:threetenbp to v1.4.4 ([#149](https://www.github.com/googleapis/java-cloudbuild/issues/149)) ([1802480](https://www.github.com/googleapis/java-cloudbuild/commit/1802480470a975495c54a3eed9285963af391fc0))
+
 ### [1.1.1](https://www.github.com/googleapis/java-cloudbuild/compare/v1.1.0...v1.1.1) (2020-04-07)
 
 
