@@ -11,22 +11,22 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/java-cloudbuild.git",
-        "sha": "c83d27e4e93d159490de487d3da24db0e4ab40ef"
+        "sha": "a692395ed77d941ae96c5a5e290d5af9ef978aa2"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "58be915cf3b7148b764649da90add697f6367aa7",
-        "internalRef": "322464556"
+        "sha": "26e80fe6cffa4963139373b9a8300bddad606daa",
+        "internalRef": "324046932"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "4f2c9f752a94042472fc03c5bd9e06e89817d2bd"
+        "sha": "dd230c816f88d0141fcd0be83498986287220d1b"
       }
     }
   ],
