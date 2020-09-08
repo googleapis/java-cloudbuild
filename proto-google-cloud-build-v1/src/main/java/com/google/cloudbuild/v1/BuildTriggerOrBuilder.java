@@ -349,7 +349,7 @@ public interface BuildTriggerOrBuilder
    *
    *
    * <pre>
-   * If true, the trigger will never result in a build.
+   * If true, the trigger will never automatically execute a build.
    * </pre>
    *
    * <code>bool disabled = 9;</code>
