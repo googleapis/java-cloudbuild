@@ -182,11 +182,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
                   input.readMessage(com.google.cloudbuild.v1.Volume.parser(), extensionRegistry));
               break;
             }
-          case 136:
-            {
-              dynamicSubstitutions_ = input.readBool();
-              break;
-            }
           default:
             {
               if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -372,9 +367,7 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
    *
    *
    * <pre>
-   * Supported Compute Engine machine types.
-   * For more information, see [Machine
-   * types](https://cloud.google.com/compute/docs/machine-types).
+   * Supported VM sizes.
    * </pre>
    *
    * Protobuf enum {@code google.devtools.cloudbuild.v1.BuildOptions.MachineType}
@@ -854,7 +847,7 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * Cloud Logging and Cloud Storage logging are enabled.
+     * Stackdriver logging and Cloud Storage logging are enabled.
      * </pre>
      *
      * <code>LEGACY = 1;</code>
@@ -870,40 +863,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      * <code>GCS_ONLY = 2;</code>
      */
     GCS_ONLY(2),
-    /**
-     *
-     *
-     * <pre>
-     * This option is the same as CLOUD_LOGGING_ONLY.
-     * </pre>
-     *
-     * <code>STACKDRIVER_ONLY = 3 [deprecated = true];</code>
-     */
-    @java.lang.Deprecated
-    STACKDRIVER_ONLY(3),
-    /**
-     *
-     *
-     * <pre>
-     * Only Cloud Logging is enabled. Note that logs for both the Cloud Console
-     * UI and Cloud SDK are based on Cloud Storage logs, so neither will provide
-     * logs if this option is chosen.
-     * </pre>
-     *
-     * <code>CLOUD_LOGGING_ONLY = 5;</code>
-     */
-    CLOUD_LOGGING_ONLY(5),
-    /**
-     *
-     *
-     * <pre>
-     * Turn off all logging. No build logs will be captured.
-     * Next ID: 6
-     * </pre>
-     *
-     * <code>NONE = 4;</code>
-     */
-    NONE(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -922,7 +881,7 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * Cloud Logging and Cloud Storage logging are enabled.
+     * Stackdriver logging and Cloud Storage logging are enabled.
      * </pre>
      *
      * <code>LEGACY = 1;</code>
@@ -938,39 +897,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      * <code>GCS_ONLY = 2;</code>
      */
     public static final int GCS_ONLY_VALUE = 2;
-    /**
-     *
-     *
-     * <pre>
-     * This option is the same as CLOUD_LOGGING_ONLY.
-     * </pre>
-     *
-     * <code>STACKDRIVER_ONLY = 3 [deprecated = true];</code>
-     */
-    @java.lang.Deprecated public static final int STACKDRIVER_ONLY_VALUE = 3;
-    /**
-     *
-     *
-     * <pre>
-     * Only Cloud Logging is enabled. Note that logs for both the Cloud Console
-     * UI and Cloud SDK are based on Cloud Storage logs, so neither will provide
-     * logs if this option is chosen.
-     * </pre>
-     *
-     * <code>CLOUD_LOGGING_ONLY = 5;</code>
-     */
-    public static final int CLOUD_LOGGING_ONLY_VALUE = 5;
-    /**
-     *
-     *
-     * <pre>
-     * Turn off all logging. No build logs will be captured.
-     * Next ID: 6
-     * </pre>
-     *
-     * <code>NONE = 4;</code>
-     */
-    public static final int NONE_VALUE = 4;
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
@@ -1002,12 +928,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
           return LEGACY;
         case 2:
           return GCS_ONLY;
-        case 3:
-          return STACKDRIVER_ONLY;
-        case 5:
-          return CLOUD_LOGGING_ONLY;
-        case 4:
-          return NONE;
         default:
           return null;
       }
@@ -1264,8 +1184,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
    * <pre>
    * Option to specify behavior when there is an error in the substitution
    * checks.
-   * NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
-   * be overridden in the build configuration file.
    * </pre>
    *
    * <code>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption substitution_option = 4;
@@ -1283,8 +1201,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
    * <pre>
    * Option to specify behavior when there is an error in the substitution
    * checks.
-   * NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
-   * be overridden in the build configuration file.
    * </pre>
    *
    * <code>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption substitution_option = 4;
@@ -1300,27 +1216,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
     return result == null
         ? com.google.cloudbuild.v1.BuildOptions.SubstitutionOption.UNRECOGNIZED
         : result;
-  }
-
-  public static final int DYNAMIC_SUBSTITUTIONS_FIELD_NUMBER = 17;
-  private boolean dynamicSubstitutions_;
-  /**
-   *
-   *
-   * <pre>
-   * Option to specify whether or not to apply bash style string
-   * operations to the substitutions.
-   * NOTE: this is always enabled for triggered builds and cannot be
-   * overridden in the build configuration file.
-   * </pre>
-   *
-   * <code>bool dynamic_substitutions = 17;</code>
-   *
-   * @return The dynamicSubstitutions.
-   */
-  @java.lang.Override
-  public boolean getDynamicSubstitutions() {
-    return dynamicSubstitutions_;
   }
 
   public static final int LOG_STREAMING_OPTION_FIELD_NUMBER = 5;
@@ -1424,8 +1319,8 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
    *
    *
    * <pre>
-   * Option to specify the logging mode, which determines if and where build
-   * logs are stored.
+   * Option to specify the logging mode, which determines where the logs are
+   * stored.
    * </pre>
    *
    * <code>.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode logging = 11;</code>
@@ -1440,8 +1335,8 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
    *
    *
    * <pre>
-   * Option to specify the logging mode, which determines if and where build
-   * logs are stored.
+   * Option to specify the logging mode, which determines where the logs are
+   * stored.
    * </pre>
    *
    * <code>.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode logging = 11;</code>
@@ -1761,9 +1656,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
     for (int i = 0; i < volumes_.size(); i++) {
       output.writeMessage(14, volumes_.get(i));
     }
-    if (dynamicSubstitutions_ != false) {
-      output.writeBool(17, dynamicSubstitutions_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -1831,9 +1723,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
     for (int i = 0; i < volumes_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream.computeMessageSize(14, volumes_.get(i));
     }
-    if (dynamicSubstitutions_ != false) {
-      size += com.google.protobuf.CodedOutputStream.computeBoolSize(17, dynamicSubstitutions_);
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1854,7 +1743,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
     if (machineType_ != other.machineType_) return false;
     if (getDiskSizeGb() != other.getDiskSizeGb()) return false;
     if (substitutionOption_ != other.substitutionOption_) return false;
-    if (getDynamicSubstitutions() != other.getDynamicSubstitutions()) return false;
     if (logStreamingOption_ != other.logStreamingOption_) return false;
     if (!getWorkerPool().equals(other.getWorkerPool())) return false;
     if (logging_ != other.logging_) return false;
@@ -1884,8 +1772,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getDiskSizeGb());
     hash = (37 * hash) + SUBSTITUTION_OPTION_FIELD_NUMBER;
     hash = (53 * hash) + substitutionOption_;
-    hash = (37 * hash) + DYNAMIC_SUBSTITUTIONS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getDynamicSubstitutions());
     hash = (37 * hash) + LOG_STREAMING_OPTION_FIELD_NUMBER;
     hash = (53 * hash) + logStreamingOption_;
     hash = (37 * hash) + WORKER_POOL_FIELD_NUMBER;
@@ -2060,8 +1946,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
 
       substitutionOption_ = 0;
 
-      dynamicSubstitutions_ = false;
-
       logStreamingOption_ = 0;
 
       workerPool_ = "";
@@ -2115,7 +1999,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
       result.machineType_ = machineType_;
       result.diskSizeGb_ = diskSizeGb_;
       result.substitutionOption_ = substitutionOption_;
-      result.dynamicSubstitutions_ = dynamicSubstitutions_;
       result.logStreamingOption_ = logStreamingOption_;
       result.workerPool_ = workerPool_;
       result.logging_ = logging_;
@@ -2208,9 +2091,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
       }
       if (other.substitutionOption_ != 0) {
         setSubstitutionOptionValue(other.getSubstitutionOptionValue());
-      }
-      if (other.getDynamicSubstitutions() != false) {
-        setDynamicSubstitutions(other.getDynamicSubstitutions());
       }
       if (other.logStreamingOption_ != 0) {
         setLogStreamingOptionValue(other.getLogStreamingOptionValue());
@@ -2801,8 +2681,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Option to specify behavior when there is an error in the substitution
      * checks.
-     * NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
-     * be overridden in the build configuration file.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption substitution_option = 4;
@@ -2820,8 +2698,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Option to specify behavior when there is an error in the substitution
      * checks.
-     * NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
-     * be overridden in the build configuration file.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption substitution_option = 4;
@@ -2842,8 +2718,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Option to specify behavior when there is an error in the substitution
      * checks.
-     * NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
-     * be overridden in the build configuration file.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption substitution_option = 4;
@@ -2866,8 +2740,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Option to specify behavior when there is an error in the substitution
      * checks.
-     * NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
-     * be overridden in the build configuration file.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption substitution_option = 4;
@@ -2892,8 +2764,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Option to specify behavior when there is an error in the substitution
      * checks.
-     * NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
-     * be overridden in the build configuration file.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption substitution_option = 4;
@@ -2904,67 +2774,6 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
     public Builder clearSubstitutionOption() {
 
       substitutionOption_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private boolean dynamicSubstitutions_;
-    /**
-     *
-     *
-     * <pre>
-     * Option to specify whether or not to apply bash style string
-     * operations to the substitutions.
-     * NOTE: this is always enabled for triggered builds and cannot be
-     * overridden in the build configuration file.
-     * </pre>
-     *
-     * <code>bool dynamic_substitutions = 17;</code>
-     *
-     * @return The dynamicSubstitutions.
-     */
-    @java.lang.Override
-    public boolean getDynamicSubstitutions() {
-      return dynamicSubstitutions_;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Option to specify whether or not to apply bash style string
-     * operations to the substitutions.
-     * NOTE: this is always enabled for triggered builds and cannot be
-     * overridden in the build configuration file.
-     * </pre>
-     *
-     * <code>bool dynamic_substitutions = 17;</code>
-     *
-     * @param value The dynamicSubstitutions to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDynamicSubstitutions(boolean value) {
-
-      dynamicSubstitutions_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Option to specify whether or not to apply bash style string
-     * operations to the substitutions.
-     * NOTE: this is always enabled for triggered builds and cannot be
-     * overridden in the build configuration file.
-     * </pre>
-     *
-     * <code>bool dynamic_substitutions = 17;</code>
-     *
-     * @return This builder for chaining.
-     */
-    public Builder clearDynamicSubstitutions() {
-
-      dynamicSubstitutions_ = false;
       onChanged();
       return this;
     }
@@ -3199,8 +3008,8 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * Option to specify the logging mode, which determines if and where build
-     * logs are stored.
+     * Option to specify the logging mode, which determines where the logs are
+     * stored.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode logging = 11;</code>
@@ -3215,8 +3024,8 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * Option to specify the logging mode, which determines if and where build
-     * logs are stored.
+     * Option to specify the logging mode, which determines where the logs are
+     * stored.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode logging = 11;</code>
@@ -3234,8 +3043,8 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * Option to specify the logging mode, which determines if and where build
-     * logs are stored.
+     * Option to specify the logging mode, which determines where the logs are
+     * stored.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode logging = 11;</code>
@@ -3255,8 +3064,8 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * Option to specify the logging mode, which determines if and where build
-     * logs are stored.
+     * Option to specify the logging mode, which determines where the logs are
+     * stored.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode logging = 11;</code>
@@ -3277,8 +3086,8 @@ public final class BuildOptions extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * Option to specify the logging mode, which determines if and where build
-     * logs are stored.
+     * Option to specify the logging mode, which determines where the logs are
+     * stored.
      * </pre>
      *
      * <code>.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode logging = 11;</code>

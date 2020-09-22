@@ -814,7 +814,7 @@ public final class BuildTrigger extends com.google.protobuf.GeneratedMessageV3
    *
    *
    * <pre>
-   * If true, the trigger will never automatically execute a build.
+   * If true, the trigger will never result in a build.
    * </pre>
    *
    * <code>bool disabled = 9;</code>
@@ -3242,7 +3242,7 @@ public final class BuildTrigger extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * If true, the trigger will never automatically execute a build.
+     * If true, the trigger will never result in a build.
      * </pre>
      *
      * <code>bool disabled = 9;</code>
@@ -3257,7 +3257,7 @@ public final class BuildTrigger extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * If true, the trigger will never automatically execute a build.
+     * If true, the trigger will never result in a build.
      * </pre>
      *
      * <code>bool disabled = 9;</code>
@@ -3275,7 +3275,7 @@ public final class BuildTrigger extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * If true, the trigger will never automatically execute a build.
+     * If true, the trigger will never result in a build.
      * </pre>
      *
      * <code>bool disabled = 9;</code>

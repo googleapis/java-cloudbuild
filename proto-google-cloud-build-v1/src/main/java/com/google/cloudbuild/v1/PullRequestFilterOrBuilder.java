@@ -56,8 +56,8 @@ public interface PullRequestFilterOrBuilder
    *
    *
    * <pre>
-   * Configure builds to run whether a repository owner or collaborator need to
-   * comment `/gcbrun`.
+   * Whether to block builds on a "/gcbrun" comment from a repository admin or
+   * collaborator.
    * </pre>
    *
    * <code>.google.devtools.cloudbuild.v1.PullRequestFilter.CommentControl comment_control = 5;
@@ -70,8 +70,8 @@ public interface PullRequestFilterOrBuilder
    *
    *
    * <pre>
-   * Configure builds to run whether a repository owner or collaborator need to
-   * comment `/gcbrun`.
+   * Whether to block builds on a "/gcbrun" comment from a repository admin or
+   * collaborator.
    * </pre>
    *
    * <code>.google.devtools.cloudbuild.v1.PullRequestFilter.CommentControl comment_control = 5;

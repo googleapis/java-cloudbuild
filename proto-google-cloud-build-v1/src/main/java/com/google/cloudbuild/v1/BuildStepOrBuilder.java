@@ -544,9 +544,7 @@ public interface BuildStepOrBuilder
    * builder image only.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.TimeSpan pull_timing = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.TimeSpan pull_timing = 13;</code>
    *
    * @return Whether the pullTiming field is set.
    */
@@ -559,9 +557,7 @@ public interface BuildStepOrBuilder
    * builder image only.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.TimeSpan pull_timing = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.TimeSpan pull_timing = 13;</code>
    *
    * @return The pullTiming.
    */
@@ -574,9 +570,7 @@ public interface BuildStepOrBuilder
    * builder image only.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.TimeSpan pull_timing = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.TimeSpan pull_timing = 13;</code>
    */
   com.google.cloudbuild.v1.TimeSpanOrBuilder getPullTimingOrBuilder();
 
@@ -630,9 +624,7 @@ public interface BuildStepOrBuilder
    * as the build progresses.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.Build.Status status = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.Build.Status status = 12;</code>
    *
    * @return The enum numeric value on the wire for status.
    */
@@ -646,9 +638,7 @@ public interface BuildStepOrBuilder
    * as the build progresses.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.Build.Status status = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.Build.Status status = 12;</code>
    *
    * @return The status.
    */

@@ -62,7 +62,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
     logUrl_ = "";
     tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     secrets_ = java.util.Collections.emptyList();
-    serviceAccount_ = "";
   }
 
   @java.lang.Override
@@ -367,13 +366,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
                 queueTtl_ = subBuilder.buildPartial();
               }
 
-              break;
-            }
-          case 338:
-            {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              serviceAccount_ = s;
               break;
             }
           default:
@@ -830,9 +822,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Output only. Status of the build.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
    *
    * @return The enum numeric value on the wire for status.
    */
@@ -847,9 +837,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Output only. Status of the build.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
    *
    * @return The status.
    */
@@ -870,7 +858,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Output only. Customer-readable message about the current status.
    * </pre>
    *
-   * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string status_detail = 24;</code>
    *
    * @return The statusDetail.
    */
@@ -893,7 +881,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Output only. Customer-readable message about the current status.
    * </pre>
    *
-   * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string status_detail = 24;</code>
    *
    * @return The bytes for statusDetail.
    */
@@ -1239,7 +1227,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Amount of time that this build should be allowed to run, to second
    * granularity. If this amount of time elapses, work on the build will cease
    * and the build status will be `TIMEOUT`.
-   * `timeout` starts ticking from `startTime`.
    * Default time is ten minutes.
    * </pre>
    *
@@ -1258,7 +1245,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Amount of time that this build should be allowed to run, to second
    * granularity. If this amount of time elapses, work on the build will cease
    * and the build status will be `TIMEOUT`.
-   * `timeout` starts ticking from `startTime`.
    * Default time is ten minutes.
    * </pre>
    *
@@ -1277,7 +1263,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Amount of time that this build should be allowed to run, to second
    * granularity. If this amount of time elapses, work on the build will cease
    * and the build status will be `TIMEOUT`.
-   * `timeout` starts ticking from `startTime`.
    * Default time is ten minutes.
    * </pre>
    *
@@ -1543,9 +1528,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Output only. A permanent fixed identifier for source.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
    *
    * @return Whether the sourceProvenance field is set.
    */
@@ -1560,9 +1543,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Output only. A permanent fixed identifier for source.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
    *
    * @return The sourceProvenance.
    */
@@ -1579,9 +1560,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * Output only. A permanent fixed identifier for source.
    * </pre>
    *
-   * <code>
-   * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-   * </code>
+   * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
    */
   @java.lang.Override
   public com.google.cloudbuild.v1.SourceProvenanceOrBuilder getSourceProvenanceOrBuilder() {
@@ -1598,7 +1577,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * was triggered automatically.
    * </pre>
    *
-   * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string build_trigger_id = 22;</code>
    *
    * @return The buildTriggerId.
    */
@@ -1622,7 +1601,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
    * was triggered automatically.
    * </pre>
    *
-   * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string build_trigger_id = 22;</code>
    *
    * @return The bytes for buildTriggerId.
    */
@@ -2101,61 +2080,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
     return map.get(key);
   }
 
-  public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 42;
-  private volatile java.lang.Object serviceAccount_;
-  /**
-   *
-   *
-   * <pre>
-   * IAM service account whose credentials will be used at build runtime.
-   * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
-   * ACCOUNT can be email address or uniqueId of the service account.
-   * This field is in alpha and is not publicly available.
-   * </pre>
-   *
-   * <code>string service_account = 42;</code>
-   *
-   * @return The serviceAccount.
-   */
-  @java.lang.Override
-  public java.lang.String getServiceAccount() {
-    java.lang.Object ref = serviceAccount_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      serviceAccount_ = s;
-      return s;
-    }
-  }
-  /**
-   *
-   *
-   * <pre>
-   * IAM service account whose credentials will be used at build runtime.
-   * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
-   * ACCOUNT can be email address or uniqueId of the service account.
-   * This field is in alpha and is not publicly available.
-   * </pre>
-   *
-   * <code>string service_account = 42;</code>
-   *
-   * @return The bytes for serviceAccount.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString getServiceAccountBytes() {
-    java.lang.Object ref = serviceAccount_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b =
-          com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-      serviceAccount_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
 
   @java.lang.Override
@@ -2236,9 +2160,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
     }
     if (queueTtl_ != null) {
       output.writeMessage(40, getQueueTtl());
-    }
-    if (!getServiceAccountBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 42, serviceAccount_);
     }
     unknownFields.writeTo(output);
   }
@@ -2342,9 +2263,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
     if (queueTtl_ != null) {
       size += com.google.protobuf.CodedOutputStream.computeMessageSize(40, getQueueTtl());
     }
-    if (!getServiceAccountBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(42, serviceAccount_);
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -2413,7 +2331,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
     if (!getTagsList().equals(other.getTagsList())) return false;
     if (!getSecretsList().equals(other.getSecretsList())) return false;
     if (!internalGetTiming().equals(other.internalGetTiming())) return false;
-    if (!getServiceAccount().equals(other.getServiceAccount())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -2503,8 +2420,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
       hash = (37 * hash) + TIMING_FIELD_NUMBER;
       hash = (53 * hash) + internalGetTiming().hashCode();
     }
-    hash = (37 * hash) + SERVICE_ACCOUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getServiceAccount().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2780,8 +2695,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
         secretsBuilder_.clear();
       }
       internalGetMutableTiming().clear();
-      serviceAccount_ = "";
-
       return this;
     }
 
@@ -2898,7 +2811,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
       }
       result.timing_ = internalGetTiming();
       result.timing_.makeImmutable();
-      result.serviceAccount_ = serviceAccount_;
       onBuilt();
       return result;
     }
@@ -3081,10 +2993,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
         }
       }
       internalGetMutableTiming().mergeFrom(other.internalGetTiming());
-      if (!other.getServiceAccount().isEmpty()) {
-        serviceAccount_ = other.serviceAccount_;
-        onChanged();
-      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -3336,9 +3244,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Status of the build.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
      *
      * @return The enum numeric value on the wire for status.
      */
@@ -3353,9 +3259,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Status of the build.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
      *
      * @param value The enum numeric value on the wire for status to set.
      * @return This builder for chaining.
@@ -3373,9 +3277,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Status of the build.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
      *
      * @return The status.
      */
@@ -3393,9 +3295,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Status of the build.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
      *
      * @param value The status to set.
      * @return This builder for chaining.
@@ -3416,9 +3316,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Status of the build.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
      *
      * @return This builder for chaining.
      */
@@ -3437,7 +3335,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Customer-readable message about the current status.
      * </pre>
      *
-     * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string status_detail = 24;</code>
      *
      * @return The statusDetail.
      */
@@ -3459,7 +3357,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Customer-readable message about the current status.
      * </pre>
      *
-     * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string status_detail = 24;</code>
      *
      * @return The bytes for statusDetail.
      */
@@ -3481,7 +3379,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Customer-readable message about the current status.
      * </pre>
      *
-     * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string status_detail = 24;</code>
      *
      * @param value The statusDetail to set.
      * @return This builder for chaining.
@@ -3502,7 +3400,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Customer-readable message about the current status.
      * </pre>
      *
-     * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string status_detail = 24;</code>
      *
      * @return This builder for chaining.
      */
@@ -3519,7 +3417,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. Customer-readable message about the current status.
      * </pre>
      *
-     * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string status_detail = 24;</code>
      *
      * @param value The bytes for statusDetail to set.
      * @return This builder for chaining.
@@ -4878,7 +4776,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -4896,7 +4793,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -4918,7 +4814,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -4944,7 +4839,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -4967,7 +4861,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -4995,7 +4888,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -5019,7 +4911,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -5037,7 +4928,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -5057,7 +4947,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Amount of time that this build should be allowed to run, to second
      * granularity. If this amount of time elapses, work on the build will cease
      * and the build status will be `TIMEOUT`.
-     * `timeout` starts ticking from `startTime`.
      * Default time is ten minutes.
      * </pre>
      *
@@ -5836,9 +5725,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      *
      * @return Whether the sourceProvenance field is set.
      */
@@ -5852,9 +5739,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      *
      * @return The sourceProvenance.
      */
@@ -5874,9 +5759,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      */
     public Builder setSourceProvenance(com.google.cloudbuild.v1.SourceProvenance value) {
       if (sourceProvenanceBuilder_ == null) {
@@ -5898,9 +5781,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      */
     public Builder setSourceProvenance(
         com.google.cloudbuild.v1.SourceProvenance.Builder builderForValue) {
@@ -5920,9 +5801,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      */
     public Builder mergeSourceProvenance(com.google.cloudbuild.v1.SourceProvenance value) {
       if (sourceProvenanceBuilder_ == null) {
@@ -5948,9 +5827,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      */
     public Builder clearSourceProvenance() {
       if (sourceProvenanceBuilder_ == null) {
@@ -5970,9 +5847,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      */
     public com.google.cloudbuild.v1.SourceProvenance.Builder getSourceProvenanceBuilder() {
 
@@ -5986,9 +5861,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      */
     public com.google.cloudbuild.v1.SourceProvenanceOrBuilder getSourceProvenanceOrBuilder() {
       if (sourceProvenanceBuilder_ != null) {
@@ -6006,9 +5879,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * Output only. A permanent fixed identifier for source.
      * </pre>
      *
-     * <code>
-     * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
-     * </code>
+     * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
             com.google.cloudbuild.v1.SourceProvenance,
@@ -6036,7 +5907,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * was triggered automatically.
      * </pre>
      *
-     * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string build_trigger_id = 22;</code>
      *
      * @return The buildTriggerId.
      */
@@ -6059,7 +5930,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * was triggered automatically.
      * </pre>
      *
-     * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string build_trigger_id = 22;</code>
      *
      * @return The bytes for buildTriggerId.
      */
@@ -6082,7 +5953,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * was triggered automatically.
      * </pre>
      *
-     * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string build_trigger_id = 22;</code>
      *
      * @param value The buildTriggerId to set.
      * @return This builder for chaining.
@@ -6104,7 +5975,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * was triggered automatically.
      * </pre>
      *
-     * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string build_trigger_id = 22;</code>
      *
      * @return This builder for chaining.
      */
@@ -6122,7 +5993,7 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
      * was triggered automatically.
      * </pre>
      *
-     * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string build_trigger_id = 22;</code>
      *
      * @param value The bytes for buildTriggerId to set.
      * @return This builder for chaining.
@@ -7318,127 +7189,6 @@ public final class Build extends com.google.protobuf.GeneratedMessageV3
     public Builder putAllTiming(
         java.util.Map<java.lang.String, com.google.cloudbuild.v1.TimeSpan> values) {
       internalGetMutableTiming().getMutableMap().putAll(values);
-      return this;
-    }
-
-    private java.lang.Object serviceAccount_ = "";
-    /**
-     *
-     *
-     * <pre>
-     * IAM service account whose credentials will be used at build runtime.
-     * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
-     * ACCOUNT can be email address or uniqueId of the service account.
-     * This field is in alpha and is not publicly available.
-     * </pre>
-     *
-     * <code>string service_account = 42;</code>
-     *
-     * @return The serviceAccount.
-     */
-    public java.lang.String getServiceAccount() {
-      java.lang.Object ref = serviceAccount_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        serviceAccount_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * IAM service account whose credentials will be used at build runtime.
-     * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
-     * ACCOUNT can be email address or uniqueId of the service account.
-     * This field is in alpha and is not publicly available.
-     * </pre>
-     *
-     * <code>string service_account = 42;</code>
-     *
-     * @return The bytes for serviceAccount.
-     */
-    public com.google.protobuf.ByteString getServiceAccountBytes() {
-      java.lang.Object ref = serviceAccount_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        serviceAccount_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * IAM service account whose credentials will be used at build runtime.
-     * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
-     * ACCOUNT can be email address or uniqueId of the service account.
-     * This field is in alpha and is not publicly available.
-     * </pre>
-     *
-     * <code>string service_account = 42;</code>
-     *
-     * @param value The serviceAccount to set.
-     * @return This builder for chaining.
-     */
-    public Builder setServiceAccount(java.lang.String value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-
-      serviceAccount_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * IAM service account whose credentials will be used at build runtime.
-     * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
-     * ACCOUNT can be email address or uniqueId of the service account.
-     * This field is in alpha and is not publicly available.
-     * </pre>
-     *
-     * <code>string service_account = 42;</code>
-     *
-     * @return This builder for chaining.
-     */
-    public Builder clearServiceAccount() {
-
-      serviceAccount_ = getDefaultInstance().getServiceAccount();
-      onChanged();
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * IAM service account whose credentials will be used at build runtime.
-     * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
-     * ACCOUNT can be email address or uniqueId of the service account.
-     * This field is in alpha and is not publicly available.
-     * </pre>
-     *
-     * <code>string service_account = 42;</code>
-     *
-     * @param value The bytes for serviceAccount to set.
-     * @return This builder for chaining.
-     */
-    public Builder setServiceAccountBytes(com.google.protobuf.ByteString value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      checkByteStringIsUtf8(value);
-
-      serviceAccount_ = value;
-      onChanged();
       return this;
     }
 
