@@ -35,24 +35,17 @@ import com.google.cloudbuild.v1.BuildTrigger;
 import com.google.cloudbuild.v1.CancelBuildRequest;
 import com.google.cloudbuild.v1.CreateBuildRequest;
 import com.google.cloudbuild.v1.CreateBuildTriggerRequest;
-import com.google.cloudbuild.v1.CreateWorkerPoolRequest;
 import com.google.cloudbuild.v1.DeleteBuildTriggerRequest;
-import com.google.cloudbuild.v1.DeleteWorkerPoolRequest;
 import com.google.cloudbuild.v1.GetBuildRequest;
 import com.google.cloudbuild.v1.GetBuildTriggerRequest;
-import com.google.cloudbuild.v1.GetWorkerPoolRequest;
 import com.google.cloudbuild.v1.ListBuildTriggersRequest;
 import com.google.cloudbuild.v1.ListBuildTriggersResponse;
 import com.google.cloudbuild.v1.ListBuildsRequest;
 import com.google.cloudbuild.v1.ListBuildsResponse;
-import com.google.cloudbuild.v1.ListWorkerPoolsRequest;
-import com.google.cloudbuild.v1.ListWorkerPoolsResponse;
 import com.google.cloudbuild.v1.RepoSource;
 import com.google.cloudbuild.v1.RetryBuildRequest;
 import com.google.cloudbuild.v1.RunBuildTriggerRequest;
 import com.google.cloudbuild.v1.UpdateBuildTriggerRequest;
-import com.google.cloudbuild.v1.UpdateWorkerPoolRequest;
-import com.google.cloudbuild.v1.WorkerPool;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.longrunning.Operation;
 import com.google.longrunning.OperationsClient;
@@ -1346,222 +1339,6 @@ public class CloudBuildClient implements BackgroundResource {
    */
   public final UnaryCallable<RunBuildTriggerRequest, Operation> runBuildTriggerCallable() {
     return stub.runBuildTriggerCallable();
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   CreateWorkerPoolRequest request = CreateWorkerPoolRequest.newBuilder().build();
-   *   WorkerPool response = cloudBuildClient.createWorkerPool(request);
-   * }
-   * </code></pre>
-   *
-   * @param request The request object containing all of the parameters for the API call.
-   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
-   */
-  public final WorkerPool createWorkerPool(CreateWorkerPoolRequest request) {
-    return createWorkerPoolCallable().call(request);
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   CreateWorkerPoolRequest request = CreateWorkerPoolRequest.newBuilder().build();
-   *   ApiFuture&lt;WorkerPool&gt; future = cloudBuildClient.createWorkerPoolCallable().futureCall(request);
-   *   // Do something
-   *   WorkerPool response = future.get();
-   * }
-   * </code></pre>
-   */
-  public final UnaryCallable<CreateWorkerPoolRequest, WorkerPool> createWorkerPoolCallable() {
-    return stub.createWorkerPoolCallable();
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * Returns information about a `WorkerPool`.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   GetWorkerPoolRequest request = GetWorkerPoolRequest.newBuilder().build();
-   *   WorkerPool response = cloudBuildClient.getWorkerPool(request);
-   * }
-   * </code></pre>
-   *
-   * @param request The request object containing all of the parameters for the API call.
-   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
-   */
-  public final WorkerPool getWorkerPool(GetWorkerPoolRequest request) {
-    return getWorkerPoolCallable().call(request);
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * Returns information about a `WorkerPool`.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   GetWorkerPoolRequest request = GetWorkerPoolRequest.newBuilder().build();
-   *   ApiFuture&lt;WorkerPool&gt; future = cloudBuildClient.getWorkerPoolCallable().futureCall(request);
-   *   // Do something
-   *   WorkerPool response = future.get();
-   * }
-   * </code></pre>
-   */
-  public final UnaryCallable<GetWorkerPoolRequest, WorkerPool> getWorkerPoolCallable() {
-    return stub.getWorkerPoolCallable();
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * Deletes a `WorkerPool` by its project ID and WorkerPool name.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   DeleteWorkerPoolRequest request = DeleteWorkerPoolRequest.newBuilder().build();
-   *   cloudBuildClient.deleteWorkerPool(request);
-   * }
-   * </code></pre>
-   *
-   * @param request The request object containing all of the parameters for the API call.
-   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
-   */
-  public final void deleteWorkerPool(DeleteWorkerPoolRequest request) {
-    deleteWorkerPoolCallable().call(request);
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * Deletes a `WorkerPool` by its project ID and WorkerPool name.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   DeleteWorkerPoolRequest request = DeleteWorkerPoolRequest.newBuilder().build();
-   *   ApiFuture&lt;Void&gt; future = cloudBuildClient.deleteWorkerPoolCallable().futureCall(request);
-   *   // Do something
-   *   future.get();
-   * }
-   * </code></pre>
-   */
-  public final UnaryCallable<DeleteWorkerPoolRequest, Empty> deleteWorkerPoolCallable() {
-    return stub.deleteWorkerPoolCallable();
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * Update a `WorkerPool`.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   UpdateWorkerPoolRequest request = UpdateWorkerPoolRequest.newBuilder().build();
-   *   WorkerPool response = cloudBuildClient.updateWorkerPool(request);
-   * }
-   * </code></pre>
-   *
-   * @param request The request object containing all of the parameters for the API call.
-   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
-   */
-  public final WorkerPool updateWorkerPool(UpdateWorkerPoolRequest request) {
-    return updateWorkerPoolCallable().call(request);
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * Update a `WorkerPool`.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   UpdateWorkerPoolRequest request = UpdateWorkerPoolRequest.newBuilder().build();
-   *   ApiFuture&lt;WorkerPool&gt; future = cloudBuildClient.updateWorkerPoolCallable().futureCall(request);
-   *   // Do something
-   *   WorkerPool response = future.get();
-   * }
-   * </code></pre>
-   */
-  public final UnaryCallable<UpdateWorkerPoolRequest, WorkerPool> updateWorkerPoolCallable() {
-    return stub.updateWorkerPoolCallable();
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * List project's `WorkerPools`.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   ListWorkerPoolsRequest request = ListWorkerPoolsRequest.newBuilder().build();
-   *   ListWorkerPoolsResponse response = cloudBuildClient.listWorkerPools(request);
-   * }
-   * </code></pre>
-   *
-   * @param request The request object containing all of the parameters for the API call.
-   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
-   */
-  public final ListWorkerPoolsResponse listWorkerPools(ListWorkerPoolsRequest request) {
-    return listWorkerPoolsCallable().call(request);
-  }
-
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
-  /**
-   * List project's `WorkerPools`.
-   *
-   * <p>This API is experimental.
-   *
-   * <p>Sample code:
-   *
-   * <pre><code>
-   * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
-   *   ListWorkerPoolsRequest request = ListWorkerPoolsRequest.newBuilder().build();
-   *   ApiFuture&lt;ListWorkerPoolsResponse&gt; future = cloudBuildClient.listWorkerPoolsCallable().futureCall(request);
-   *   // Do something
-   *   ListWorkerPoolsResponse response = future.get();
-   * }
-   * </code></pre>
-   */
-  public final UnaryCallable<ListWorkerPoolsRequest, ListWorkerPoolsResponse>
-      listWorkerPoolsCallable() {
-    return stub.listWorkerPoolsCallable();
   }
 
   @Override

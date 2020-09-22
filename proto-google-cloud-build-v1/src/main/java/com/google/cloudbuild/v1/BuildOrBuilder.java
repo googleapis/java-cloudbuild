@@ -80,7 +80,9 @@ public interface BuildOrBuilder
    * Output only. Status of the build.
    * </pre>
    *
-   * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
+   * <code>
+   * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
+   * </code>
    *
    * @return The enum numeric value on the wire for status.
    */
@@ -92,7 +94,9 @@ public interface BuildOrBuilder
    * Output only. Status of the build.
    * </pre>
    *
-   * <code>.google.devtools.cloudbuild.v1.Build.Status status = 2;</code>
+   * <code>
+   * .google.devtools.cloudbuild.v1.Build.Status status = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
+   * </code>
    *
    * @return The status.
    */
@@ -105,7 +109,7 @@ public interface BuildOrBuilder
    * Output only. Customer-readable message about the current status.
    * </pre>
    *
-   * <code>string status_detail = 24;</code>
+   * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    *
    * @return The statusDetail.
    */
@@ -117,7 +121,7 @@ public interface BuildOrBuilder
    * Output only. Customer-readable message about the current status.
    * </pre>
    *
-   * <code>string status_detail = 24;</code>
+   * <code>string status_detail = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    *
    * @return The bytes for statusDetail.
    */
@@ -377,6 +381,7 @@ public interface BuildOrBuilder
    * Amount of time that this build should be allowed to run, to second
    * granularity. If this amount of time elapses, work on the build will cease
    * and the build status will be `TIMEOUT`.
+   * `timeout` starts ticking from `startTime`.
    * Default time is ten minutes.
    * </pre>
    *
@@ -392,6 +397,7 @@ public interface BuildOrBuilder
    * Amount of time that this build should be allowed to run, to second
    * granularity. If this amount of time elapses, work on the build will cease
    * and the build status will be `TIMEOUT`.
+   * `timeout` starts ticking from `startTime`.
    * Default time is ten minutes.
    * </pre>
    *
@@ -407,6 +413,7 @@ public interface BuildOrBuilder
    * Amount of time that this build should be allowed to run, to second
    * granularity. If this amount of time elapses, work on the build will cease
    * and the build status will be `TIMEOUT`.
+   * `timeout` starts ticking from `startTime`.
    * Default time is ten minutes.
    * </pre>
    *
@@ -609,7 +616,9 @@ public interface BuildOrBuilder
    * Output only. A permanent fixed identifier for source.
    * </pre>
    *
-   * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
+   * <code>
+   * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
+   * </code>
    *
    * @return Whether the sourceProvenance field is set.
    */
@@ -621,7 +630,9 @@ public interface BuildOrBuilder
    * Output only. A permanent fixed identifier for source.
    * </pre>
    *
-   * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
+   * <code>
+   * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
+   * </code>
    *
    * @return The sourceProvenance.
    */
@@ -633,7 +644,9 @@ public interface BuildOrBuilder
    * Output only. A permanent fixed identifier for source.
    * </pre>
    *
-   * <code>.google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21;</code>
+   * <code>
+   * .google.devtools.cloudbuild.v1.SourceProvenance source_provenance = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];
+   * </code>
    */
   com.google.cloudbuild.v1.SourceProvenanceOrBuilder getSourceProvenanceOrBuilder();
 
@@ -645,7 +658,7 @@ public interface BuildOrBuilder
    * was triggered automatically.
    * </pre>
    *
-   * <code>string build_trigger_id = 22;</code>
+   * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    *
    * @return The buildTriggerId.
    */
@@ -658,7 +671,7 @@ public interface BuildOrBuilder
    * was triggered automatically.
    * </pre>
    *
-   * <code>string build_trigger_id = 22;</code>
+   * <code>string build_trigger_id = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    *
    * @return The bytes for buildTriggerId.
    */
@@ -974,4 +987,35 @@ public interface BuildOrBuilder
    * </code>
    */
   com.google.cloudbuild.v1.TimeSpan getTimingOrThrow(java.lang.String key);
+
+  /**
+   *
+   *
+   * <pre>
+   * IAM service account whose credentials will be used at build runtime.
+   * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+   * ACCOUNT can be email address or uniqueId of the service account.
+   * This field is in alpha and is not publicly available.
+   * </pre>
+   *
+   * <code>string service_account = 42;</code>
+   *
+   * @return The serviceAccount.
+   */
+  java.lang.String getServiceAccount();
+  /**
+   *
+   *
+   * <pre>
+   * IAM service account whose credentials will be used at build runtime.
+   * Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+   * ACCOUNT can be email address or uniqueId of the service account.
+   * This field is in alpha and is not publicly available.
+   * </pre>
+   *
+   * <code>string service_account = 42;</code>
+   *
+   * @return The bytes for serviceAccount.
+   */
+  com.google.protobuf.ByteString getServiceAccountBytes();
 }
