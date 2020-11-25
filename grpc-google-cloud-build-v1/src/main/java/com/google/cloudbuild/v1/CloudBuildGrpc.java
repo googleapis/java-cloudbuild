@@ -22,18 +22,7 @@ import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
-/**
- *
- *
- * <pre>
- * Creates and manages builds on Google Cloud Platform.
- * The main concept used by this API is a `Build`, which describes the location
- * of the source to build, how to build the source, and where to store the
- * built artifacts, if any.
- * A user can list previously-requested builds or get builds by their ID to
- * determine the status of the build.
- * </pre>
- */
+/** */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler",
     comments = "Source: google/devtools/cloudbuild/v1/cloudbuild.proto")
@@ -764,147 +753,59 @@ public final class CloudBuildGrpc {
     return CloudBuildFutureStub.newStub(factory, channel);
   }
 
-  /**
-   *
-   *
-   * <pre>
-   * Creates and manages builds on Google Cloud Platform.
-   * The main concept used by this API is a `Build`, which describes the location
-   * of the source to build, how to build the source, and where to store the
-   * built artifacts, if any.
-   * A user can list previously-requested builds or get builds by their ID to
-   * determine the status of the build.
-   * </pre>
-   */
+  /** */
   public abstract static class CloudBuildImplBase implements io.grpc.BindableService {
 
-    /**
-     *
-     *
-     * <pre>
-     * Starts a build with the specified configuration.
-     * This method returns a long-running `Operation`, which includes the build
-     * ID. Pass the build ID to `GetBuild` to determine the build status (such as
-     * `SUCCESS` or `FAILURE`).
-     * </pre>
-     */
+    /** */
     public void createBuild(
         com.google.cloudbuild.v1.CreateBuildRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getCreateBuildMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a previously requested build.
-     * The `Build` that is returned includes its status (such as `SUCCESS`,
-     * `FAILURE`, or `WORKING`), and timing information.
-     * </pre>
-     */
+    /** */
     public void getBuild(
         com.google.cloudbuild.v1.GetBuildRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.Build> responseObserver) {
       asyncUnimplementedUnaryCall(getGetBuildMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Lists previously requested builds.
-     * Previously requested builds may still be in-progress, or may have finished
-     * successfully or unsuccessfully.
-     * </pre>
-     */
+    /** */
     public void listBuilds(
         com.google.cloudbuild.v1.ListBuildsRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ListBuildsResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getListBuildsMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Cancels a build in progress.
-     * </pre>
-     */
+    /** */
     public void cancelBuild(
         com.google.cloudbuild.v1.CancelBuildRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.Build> responseObserver) {
       asyncUnimplementedUnaryCall(getCancelBuildMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a new build based on the specified build.
-     * This method creates a new build using the original build request, which may
-     * or may not result in an identical build.
-     * For triggered builds:
-     * * Triggered builds resolve to a precise revision; therefore a retry of a
-     * triggered build will result in a build that uses the same revision.
-     * For non-triggered builds that specify `RepoSource`:
-     * * If the original build built from the tip of a branch, the retried build
-     * will build from the tip of that branch, which may not be the same revision
-     * as the original build.
-     * * If the original build specified a commit sha or revision ID, the retried
-     * build will use the identical source.
-     * For builds that specify `StorageSource`:
-     * * If the original build pulled source from Google Cloud Storage without
-     * specifying the generation of the object, the new build will use the current
-     * object, which may be different from the original build source.
-     * * If the original build pulled source from Cloud Storage and specified the
-     * generation of the object, the new build will attempt to use the same
-     * object, which may or may not be available depending on the bucket's
-     * lifecycle management settings.
-     * </pre>
-     */
+    /** */
     public void retryBuild(
         com.google.cloudbuild.v1.RetryBuildRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getRetryBuildMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a new `BuildTrigger`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void createBuildTrigger(
         com.google.cloudbuild.v1.CreateBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.BuildTrigger> responseObserver) {
       asyncUnimplementedUnaryCall(getCreateBuildTriggerMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a `BuildTrigger`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void getBuildTrigger(
         com.google.cloudbuild.v1.GetBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.BuildTrigger> responseObserver) {
       asyncUnimplementedUnaryCall(getGetBuildTriggerMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Lists existing `BuildTrigger`s.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void listBuildTriggers(
         com.google.cloudbuild.v1.ListBuildTriggersRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ListBuildTriggersResponse>
@@ -912,111 +813,56 @@ public final class CloudBuildGrpc {
       asyncUnimplementedUnaryCall(getListBuildTriggersMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Deletes a `BuildTrigger` by its project ID and trigger ID.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void deleteBuildTrigger(
         com.google.cloudbuild.v1.DeleteBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       asyncUnimplementedUnaryCall(getDeleteBuildTriggerMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Updates a `BuildTrigger` by its project ID and trigger ID.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void updateBuildTrigger(
         com.google.cloudbuild.v1.UpdateBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.BuildTrigger> responseObserver) {
       asyncUnimplementedUnaryCall(getUpdateBuildTriggerMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Runs a `BuildTrigger` at a particular source revision.
-     * </pre>
-     */
+    /** */
     public void runBuildTrigger(
         com.google.cloudbuild.v1.RunBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getRunBuildTriggerMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void createWorkerPool(
         com.google.cloudbuild.v1.CreateWorkerPoolRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.WorkerPool> responseObserver) {
       asyncUnimplementedUnaryCall(getCreateWorkerPoolMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a `WorkerPool`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void getWorkerPool(
         com.google.cloudbuild.v1.GetWorkerPoolRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.WorkerPool> responseObserver) {
       asyncUnimplementedUnaryCall(getGetWorkerPoolMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Deletes a `WorkerPool` by its project ID and WorkerPool name.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void deleteWorkerPool(
         com.google.cloudbuild.v1.DeleteWorkerPoolRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       asyncUnimplementedUnaryCall(getDeleteWorkerPoolMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Update a `WorkerPool`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void updateWorkerPool(
         com.google.cloudbuild.v1.UpdateWorkerPoolRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.WorkerPool> responseObserver) {
       asyncUnimplementedUnaryCall(getUpdateWorkerPoolMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * List project's `WorkerPools`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void listWorkerPools(
         com.google.cloudbuild.v1.ListWorkerPoolsRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ListWorkerPoolsResponse>
@@ -1129,18 +975,7 @@ public final class CloudBuildGrpc {
     }
   }
 
-  /**
-   *
-   *
-   * <pre>
-   * Creates and manages builds on Google Cloud Platform.
-   * The main concept used by this API is a `Build`, which describes the location
-   * of the source to build, how to build the source, and where to store the
-   * built artifacts, if any.
-   * A user can list previously-requested builds or get builds by their ID to
-   * determine the status of the build.
-   * </pre>
-   */
+  /** */
   public static final class CloudBuildStub extends io.grpc.stub.AbstractAsyncStub<CloudBuildStub> {
     private CloudBuildStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -1151,16 +986,7 @@ public final class CloudBuildGrpc {
       return new CloudBuildStub(channel, callOptions);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Starts a build with the specified configuration.
-     * This method returns a long-running `Operation`, which includes the build
-     * ID. Pass the build ID to `GetBuild` to determine the build status (such as
-     * `SUCCESS` or `FAILURE`).
-     * </pre>
-     */
+    /** */
     public void createBuild(
         com.google.cloudbuild.v1.CreateBuildRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -1170,15 +996,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a previously requested build.
-     * The `Build` that is returned includes its status (such as `SUCCESS`,
-     * `FAILURE`, or `WORKING`), and timing information.
-     * </pre>
-     */
+    /** */
     public void getBuild(
         com.google.cloudbuild.v1.GetBuildRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.Build> responseObserver) {
@@ -1186,15 +1004,7 @@ public final class CloudBuildGrpc {
           getChannel().newCall(getGetBuildMethod(), getCallOptions()), request, responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Lists previously requested builds.
-     * Previously requested builds may still be in-progress, or may have finished
-     * successfully or unsuccessfully.
-     * </pre>
-     */
+    /** */
     public void listBuilds(
         com.google.cloudbuild.v1.ListBuildsRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ListBuildsResponse> responseObserver) {
@@ -1202,13 +1012,7 @@ public final class CloudBuildGrpc {
           getChannel().newCall(getListBuildsMethod(), getCallOptions()), request, responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Cancels a build in progress.
-     * </pre>
-     */
+    /** */
     public void cancelBuild(
         com.google.cloudbuild.v1.CancelBuildRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.Build> responseObserver) {
@@ -1218,32 +1022,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a new build based on the specified build.
-     * This method creates a new build using the original build request, which may
-     * or may not result in an identical build.
-     * For triggered builds:
-     * * Triggered builds resolve to a precise revision; therefore a retry of a
-     * triggered build will result in a build that uses the same revision.
-     * For non-triggered builds that specify `RepoSource`:
-     * * If the original build built from the tip of a branch, the retried build
-     * will build from the tip of that branch, which may not be the same revision
-     * as the original build.
-     * * If the original build specified a commit sha or revision ID, the retried
-     * build will use the identical source.
-     * For builds that specify `StorageSource`:
-     * * If the original build pulled source from Google Cloud Storage without
-     * specifying the generation of the object, the new build will use the current
-     * object, which may be different from the original build source.
-     * * If the original build pulled source from Cloud Storage and specified the
-     * generation of the object, the new build will attempt to use the same
-     * object, which may or may not be available depending on the bucket's
-     * lifecycle management settings.
-     * </pre>
-     */
+    /** */
     public void retryBuild(
         com.google.cloudbuild.v1.RetryBuildRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -1251,14 +1030,7 @@ public final class CloudBuildGrpc {
           getChannel().newCall(getRetryBuildMethod(), getCallOptions()), request, responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a new `BuildTrigger`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void createBuildTrigger(
         com.google.cloudbuild.v1.CreateBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.BuildTrigger> responseObserver) {
@@ -1268,14 +1040,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a `BuildTrigger`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void getBuildTrigger(
         com.google.cloudbuild.v1.GetBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.BuildTrigger> responseObserver) {
@@ -1285,14 +1050,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Lists existing `BuildTrigger`s.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void listBuildTriggers(
         com.google.cloudbuild.v1.ListBuildTriggersRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ListBuildTriggersResponse>
@@ -1303,14 +1061,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Deletes a `BuildTrigger` by its project ID and trigger ID.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void deleteBuildTrigger(
         com.google.cloudbuild.v1.DeleteBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
@@ -1320,14 +1071,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Updates a `BuildTrigger` by its project ID and trigger ID.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void updateBuildTrigger(
         com.google.cloudbuild.v1.UpdateBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.BuildTrigger> responseObserver) {
@@ -1337,13 +1081,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Runs a `BuildTrigger` at a particular source revision.
-     * </pre>
-     */
+    /** */
     public void runBuildTrigger(
         com.google.cloudbuild.v1.RunBuildTriggerRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -1353,14 +1091,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void createWorkerPool(
         com.google.cloudbuild.v1.CreateWorkerPoolRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.WorkerPool> responseObserver) {
@@ -1370,14 +1101,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a `WorkerPool`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void getWorkerPool(
         com.google.cloudbuild.v1.GetWorkerPoolRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.WorkerPool> responseObserver) {
@@ -1387,14 +1111,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Deletes a `WorkerPool` by its project ID and WorkerPool name.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void deleteWorkerPool(
         com.google.cloudbuild.v1.DeleteWorkerPoolRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
@@ -1404,14 +1121,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Update a `WorkerPool`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void updateWorkerPool(
         com.google.cloudbuild.v1.UpdateWorkerPoolRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.WorkerPool> responseObserver) {
@@ -1421,14 +1131,7 @@ public final class CloudBuildGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * List project's `WorkerPools`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public void listWorkerPools(
         com.google.cloudbuild.v1.ListWorkerPoolsRequest request,
         io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ListWorkerPoolsResponse>
@@ -1440,18 +1143,7 @@ public final class CloudBuildGrpc {
     }
   }
 
-  /**
-   *
-   *
-   * <pre>
-   * Creates and manages builds on Google Cloud Platform.
-   * The main concept used by this API is a `Build`, which describes the location
-   * of the source to build, how to build the source, and where to store the
-   * built artifacts, if any.
-   * A user can list previously-requested builds or get builds by their ID to
-   * determine the status of the build.
-   * </pre>
-   */
+  /** */
   public static final class CloudBuildBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<CloudBuildBlockingStub> {
     private CloudBuildBlockingStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
@@ -1464,254 +1156,111 @@ public final class CloudBuildGrpc {
       return new CloudBuildBlockingStub(channel, callOptions);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Starts a build with the specified configuration.
-     * This method returns a long-running `Operation`, which includes the build
-     * ID. Pass the build ID to `GetBuild` to determine the build status (such as
-     * `SUCCESS` or `FAILURE`).
-     * </pre>
-     */
+    /** */
     public com.google.longrunning.Operation createBuild(
         com.google.cloudbuild.v1.CreateBuildRequest request) {
       return blockingUnaryCall(getChannel(), getCreateBuildMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a previously requested build.
-     * The `Build` that is returned includes its status (such as `SUCCESS`,
-     * `FAILURE`, or `WORKING`), and timing information.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.Build getBuild(
         com.google.cloudbuild.v1.GetBuildRequest request) {
       return blockingUnaryCall(getChannel(), getGetBuildMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Lists previously requested builds.
-     * Previously requested builds may still be in-progress, or may have finished
-     * successfully or unsuccessfully.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.ListBuildsResponse listBuilds(
         com.google.cloudbuild.v1.ListBuildsRequest request) {
       return blockingUnaryCall(getChannel(), getListBuildsMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Cancels a build in progress.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.Build cancelBuild(
         com.google.cloudbuild.v1.CancelBuildRequest request) {
       return blockingUnaryCall(getChannel(), getCancelBuildMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a new build based on the specified build.
-     * This method creates a new build using the original build request, which may
-     * or may not result in an identical build.
-     * For triggered builds:
-     * * Triggered builds resolve to a precise revision; therefore a retry of a
-     * triggered build will result in a build that uses the same revision.
-     * For non-triggered builds that specify `RepoSource`:
-     * * If the original build built from the tip of a branch, the retried build
-     * will build from the tip of that branch, which may not be the same revision
-     * as the original build.
-     * * If the original build specified a commit sha or revision ID, the retried
-     * build will use the identical source.
-     * For builds that specify `StorageSource`:
-     * * If the original build pulled source from Google Cloud Storage without
-     * specifying the generation of the object, the new build will use the current
-     * object, which may be different from the original build source.
-     * * If the original build pulled source from Cloud Storage and specified the
-     * generation of the object, the new build will attempt to use the same
-     * object, which may or may not be available depending on the bucket's
-     * lifecycle management settings.
-     * </pre>
-     */
+    /** */
     public com.google.longrunning.Operation retryBuild(
         com.google.cloudbuild.v1.RetryBuildRequest request) {
       return blockingUnaryCall(getChannel(), getRetryBuildMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a new `BuildTrigger`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.BuildTrigger createBuildTrigger(
         com.google.cloudbuild.v1.CreateBuildTriggerRequest request) {
       return blockingUnaryCall(
           getChannel(), getCreateBuildTriggerMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a `BuildTrigger`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.BuildTrigger getBuildTrigger(
         com.google.cloudbuild.v1.GetBuildTriggerRequest request) {
       return blockingUnaryCall(getChannel(), getGetBuildTriggerMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Lists existing `BuildTrigger`s.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.ListBuildTriggersResponse listBuildTriggers(
         com.google.cloudbuild.v1.ListBuildTriggersRequest request) {
       return blockingUnaryCall(
           getChannel(), getListBuildTriggersMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Deletes a `BuildTrigger` by its project ID and trigger ID.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.protobuf.Empty deleteBuildTrigger(
         com.google.cloudbuild.v1.DeleteBuildTriggerRequest request) {
       return blockingUnaryCall(
           getChannel(), getDeleteBuildTriggerMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Updates a `BuildTrigger` by its project ID and trigger ID.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.BuildTrigger updateBuildTrigger(
         com.google.cloudbuild.v1.UpdateBuildTriggerRequest request) {
       return blockingUnaryCall(
           getChannel(), getUpdateBuildTriggerMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Runs a `BuildTrigger` at a particular source revision.
-     * </pre>
-     */
+    /** */
     public com.google.longrunning.Operation runBuildTrigger(
         com.google.cloudbuild.v1.RunBuildTriggerRequest request) {
       return blockingUnaryCall(getChannel(), getRunBuildTriggerMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.WorkerPool createWorkerPool(
         com.google.cloudbuild.v1.CreateWorkerPoolRequest request) {
       return blockingUnaryCall(
           getChannel(), getCreateWorkerPoolMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a `WorkerPool`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.WorkerPool getWorkerPool(
         com.google.cloudbuild.v1.GetWorkerPoolRequest request) {
       return blockingUnaryCall(getChannel(), getGetWorkerPoolMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Deletes a `WorkerPool` by its project ID and WorkerPool name.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.protobuf.Empty deleteWorkerPool(
         com.google.cloudbuild.v1.DeleteWorkerPoolRequest request) {
       return blockingUnaryCall(
           getChannel(), getDeleteWorkerPoolMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Update a `WorkerPool`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.WorkerPool updateWorkerPool(
         com.google.cloudbuild.v1.UpdateWorkerPoolRequest request) {
       return blockingUnaryCall(
           getChannel(), getUpdateWorkerPoolMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * List project's `WorkerPools`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.cloudbuild.v1.ListWorkerPoolsResponse listWorkerPools(
         com.google.cloudbuild.v1.ListWorkerPoolsRequest request) {
       return blockingUnaryCall(getChannel(), getListWorkerPoolsMethod(), getCallOptions(), request);
     }
   }
 
-  /**
-   *
-   *
-   * <pre>
-   * Creates and manages builds on Google Cloud Platform.
-   * The main concept used by this API is a `Build`, which describes the location
-   * of the source to build, how to build the source, and where to store the
-   * built artifacts, if any.
-   * A user can list previously-requested builds or get builds by their ID to
-   * determine the status of the build.
-   * </pre>
-   */
+  /** */
   public static final class CloudBuildFutureStub
       extends io.grpc.stub.AbstractFutureStub<CloudBuildFutureStub> {
     private CloudBuildFutureStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
@@ -1723,45 +1272,20 @@ public final class CloudBuildGrpc {
       return new CloudBuildFutureStub(channel, callOptions);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Starts a build with the specified configuration.
-     * This method returns a long-running `Operation`, which includes the build
-     * ID. Pass the build ID to `GetBuild` to determine the build status (such as
-     * `SUCCESS` or `FAILURE`).
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         createBuild(com.google.cloudbuild.v1.CreateBuildRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCreateBuildMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a previously requested build.
-     * The `Build` that is returned includes its status (such as `SUCCESS`,
-     * `FAILURE`, or `WORKING`), and timing information.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.cloudbuild.v1.Build>
         getBuild(com.google.cloudbuild.v1.GetBuildRequest request) {
       return futureUnaryCall(getChannel().newCall(getGetBuildMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Lists previously requested builds.
-     * Previously requested builds may still be in-progress, or may have finished
-     * successfully or unsuccessfully.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.cloudbuild.v1.ListBuildsResponse>
         listBuilds(com.google.cloudbuild.v1.ListBuildsRequest request) {
@@ -1769,87 +1293,35 @@ public final class CloudBuildGrpc {
           getChannel().newCall(getListBuildsMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Cancels a build in progress.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.cloudbuild.v1.Build>
         cancelBuild(com.google.cloudbuild.v1.CancelBuildRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCancelBuildMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a new build based on the specified build.
-     * This method creates a new build using the original build request, which may
-     * or may not result in an identical build.
-     * For triggered builds:
-     * * Triggered builds resolve to a precise revision; therefore a retry of a
-     * triggered build will result in a build that uses the same revision.
-     * For non-triggered builds that specify `RepoSource`:
-     * * If the original build built from the tip of a branch, the retried build
-     * will build from the tip of that branch, which may not be the same revision
-     * as the original build.
-     * * If the original build specified a commit sha or revision ID, the retried
-     * build will use the identical source.
-     * For builds that specify `StorageSource`:
-     * * If the original build pulled source from Google Cloud Storage without
-     * specifying the generation of the object, the new build will use the current
-     * object, which may be different from the original build source.
-     * * If the original build pulled source from Cloud Storage and specified the
-     * generation of the object, the new build will attempt to use the same
-     * object, which may or may not be available depending on the bucket's
-     * lifecycle management settings.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         retryBuild(com.google.cloudbuild.v1.RetryBuildRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getRetryBuildMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a new `BuildTrigger`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.cloudbuild.v1.BuildTrigger>
         createBuildTrigger(com.google.cloudbuild.v1.CreateBuildTriggerRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCreateBuildTriggerMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a `BuildTrigger`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.cloudbuild.v1.BuildTrigger>
         getBuildTrigger(com.google.cloudbuild.v1.GetBuildTriggerRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetBuildTriggerMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Lists existing `BuildTrigger`s.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.cloudbuild.v1.ListBuildTriggersResponse>
         listBuildTriggers(com.google.cloudbuild.v1.ListBuildTriggersRequest request) {
@@ -1857,111 +1329,56 @@ public final class CloudBuildGrpc {
           getChannel().newCall(getListBuildTriggersMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Deletes a `BuildTrigger` by its project ID and trigger ID.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty>
         deleteBuildTrigger(com.google.cloudbuild.v1.DeleteBuildTriggerRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getDeleteBuildTriggerMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Updates a `BuildTrigger` by its project ID and trigger ID.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.cloudbuild.v1.BuildTrigger>
         updateBuildTrigger(com.google.cloudbuild.v1.UpdateBuildTriggerRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getUpdateBuildTriggerMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Runs a `BuildTrigger` at a particular source revision.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         runBuildTrigger(com.google.cloudbuild.v1.RunBuildTriggerRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getRunBuildTriggerMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.cloudbuild.v1.WorkerPool>
         createWorkerPool(com.google.cloudbuild.v1.CreateWorkerPoolRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCreateWorkerPoolMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns information about a `WorkerPool`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.cloudbuild.v1.WorkerPool>
         getWorkerPool(com.google.cloudbuild.v1.GetWorkerPoolRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetWorkerPoolMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Deletes a `WorkerPool` by its project ID and WorkerPool name.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty>
         deleteWorkerPool(com.google.cloudbuild.v1.DeleteWorkerPoolRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getDeleteWorkerPoolMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Update a `WorkerPool`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<com.google.cloudbuild.v1.WorkerPool>
         updateWorkerPool(com.google.cloudbuild.v1.UpdateWorkerPoolRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getUpdateWorkerPoolMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * List project's `WorkerPools`.
-     * This API is experimental.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.cloudbuild.v1.ListWorkerPoolsResponse>
         listWorkerPools(com.google.cloudbuild.v1.ListWorkerPoolsRequest request) {
