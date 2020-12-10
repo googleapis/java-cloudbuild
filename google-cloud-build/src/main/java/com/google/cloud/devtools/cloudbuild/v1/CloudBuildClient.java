@@ -192,7 +192,7 @@ public class CloudBuildClient implements BackgroundResource {
    * <p>This method returns a long-running `Operation`, which includes the build ID. Pass the build
    * ID to `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
    *
-   * @param project_id Required. ID of the project.
+   * @param projectId Required. ID of the project.
    * @param build Required. Build resource to create.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
@@ -252,7 +252,7 @@ public class CloudBuildClient implements BackgroundResource {
    * <p>The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or
    * `WORKING`), and timing information.
    *
-   * @param project_id Required. ID of the project.
+   * @param projectId Required. ID of the project.
    * @param id Required. ID of the build.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
@@ -296,7 +296,7 @@ public class CloudBuildClient implements BackgroundResource {
    * <p>Previously requested builds may still be in-progress, or may have finished successfully or
    * unsuccessfully.
    *
-   * @param project_id Required. ID of the project.
+   * @param projectId Required. ID of the project.
    * @param filter The raw filter text to constrain the results.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
@@ -350,7 +350,7 @@ public class CloudBuildClient implements BackgroundResource {
   /**
    * Cancels a build in progress.
    *
-   * @param project_id Required. ID of the project.
+   * @param projectId Required. ID of the project.
    * @param id Required. ID of the build.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
@@ -415,7 +415,7 @@ public class CloudBuildClient implements BackgroundResource {
    *       available depending on the bucket's lifecycle management settings.
    * </ul>
    *
-   * @param project_id Required. ID of the project.
+   * @param projectId Required. ID of the project.
    * @param id Required. Build ID of the original build.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
@@ -555,7 +555,7 @@ public class CloudBuildClient implements BackgroundResource {
    *
    * <p>This API is experimental.
    *
-   * @param project_id Required. ID of the project for which to configure automatic builds.
+   * @param projectId Required. ID of the project for which to configure automatic builds.
    * @param trigger Required. `BuildTrigger` to create.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
@@ -596,8 +596,8 @@ public class CloudBuildClient implements BackgroundResource {
    *
    * <p>This API is experimental.
    *
-   * @param project_id Required. ID of the project that owns the trigger.
-   * @param trigger_id Required. Identifier (`id` or `name`) of the `BuildTrigger` to get.
+   * @param projectId Required. ID of the project that owns the trigger.
+   * @param triggerId Required. Identifier (`id` or `name`) of the `BuildTrigger` to get.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
   public final BuildTrigger getBuildTrigger(String projectId, String triggerId) {
@@ -637,7 +637,7 @@ public class CloudBuildClient implements BackgroundResource {
    *
    * <p>This API is experimental.
    *
-   * @param project_id Required. ID of the project for which to list BuildTriggers.
+   * @param projectId Required. ID of the project for which to list BuildTriggers.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
   public final ListBuildTriggersPagedResponse listBuildTriggers(String projectId) {
@@ -691,8 +691,8 @@ public class CloudBuildClient implements BackgroundResource {
    *
    * <p>This API is experimental.
    *
-   * @param project_id Required. ID of the project that owns the trigger.
-   * @param trigger_id Required. ID of the `BuildTrigger` to delete.
+   * @param projectId Required. ID of the project that owns the trigger.
+   * @param triggerId Required. ID of the `BuildTrigger` to delete.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
   public final void deleteBuildTrigger(String projectId, String triggerId) {
@@ -735,8 +735,8 @@ public class CloudBuildClient implements BackgroundResource {
    *
    * <p>This API is experimental.
    *
-   * @param project_id Required. ID of the project that owns the trigger.
-   * @param trigger_id Required. ID of the `BuildTrigger` to update.
+   * @param projectId Required. ID of the project that owns the trigger.
+   * @param triggerId Required. ID of the `BuildTrigger` to update.
    * @param trigger Required. `BuildTrigger` to update.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
@@ -780,8 +780,8 @@ public class CloudBuildClient implements BackgroundResource {
   /**
    * Runs a `BuildTrigger` at a particular source revision.
    *
-   * @param project_id Required. ID of the project.
-   * @param trigger_id Required. ID of the trigger.
+   * @param projectId Required. ID of the project.
+   * @param triggerId Required. ID of the trigger.
    * @param source Required. Source to build against this trigger.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
    */
