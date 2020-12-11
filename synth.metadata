@@ -18,8 +18,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "857f70daef9f4c38f042fb3dfb7b8423ae18fd19",
-        "internalRef": "346372957"
+        "sha": "6d65640b1fcbdf26ea76cb720de0ac138cae9bed",
+        "internalRef": "347036369"
       }
     },
     {
@@ -135,6 +135,7 @@
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/BuildStep.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/BuildStepOrBuilder.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/BuildTrigger.java",
+    "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/BuildTriggerName.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/BuildTriggerOrBuilder.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/BuiltImage.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/BuiltImageOrBuilder.java",
@@ -175,8 +176,10 @@
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/ListWorkerPoolsRequestOrBuilder.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/ListWorkerPoolsResponse.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/ListWorkerPoolsResponseOrBuilder.java",
+    "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/LocationName.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/Network.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/NetworkOrBuilder.java",
+    "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/ProjectName.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/PullRequestFilter.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/PullRequestFilterOrBuilder.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/PushFilter.java",
@@ -191,6 +194,7 @@
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/RunBuildTriggerRequestOrBuilder.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/Secret.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/SecretOrBuilder.java",
+    "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/ServiceAccountName.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/Source.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/SourceOrBuilder.java",
     "proto-google-cloud-build-v1/src/main/java/com/google/cloudbuild/v1/SourceProvenance.java",

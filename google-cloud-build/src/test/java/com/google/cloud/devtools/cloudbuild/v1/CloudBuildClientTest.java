@@ -33,6 +33,7 @@ import com.google.cloudbuild.v1.BuildName;
 import com.google.cloudbuild.v1.BuildOptions;
 import com.google.cloudbuild.v1.BuildStep;
 import com.google.cloudbuild.v1.BuildTrigger;
+import com.google.cloudbuild.v1.BuildTriggerName;
 import com.google.cloudbuild.v1.CancelBuildRequest;
 import com.google.cloudbuild.v1.CreateBuildRequest;
 import com.google.cloudbuild.v1.CreateBuildTriggerRequest;
@@ -54,6 +55,7 @@ import com.google.cloudbuild.v1.Results;
 import com.google.cloudbuild.v1.RetryBuildRequest;
 import com.google.cloudbuild.v1.RunBuildTriggerRequest;
 import com.google.cloudbuild.v1.Secret;
+import com.google.cloudbuild.v1.ServiceAccountName;
 import com.google.cloudbuild.v1.Source;
 import com.google.cloudbuild.v1.SourceProvenance;
 import com.google.cloudbuild.v1.TimeSpan;
@@ -149,7 +151,7 @@ public class CloudBuildClientTest {
             .addAllTags(new ArrayList<String>())
             .addAllSecrets(new ArrayList<Secret>())
             .putAllTiming(new HashMap<String, TimeSpan>())
-            .setServiceAccount("serviceAccount1079137720")
+            .setServiceAccount(ServiceAccountName.of("[PROJECT]", "[SERVICE_ACCOUNT]").toString())
             .build();
     Operation resultOperation =
         Operation.newBuilder()
@@ -221,7 +223,7 @@ public class CloudBuildClientTest {
             .addAllTags(new ArrayList<String>())
             .addAllSecrets(new ArrayList<Secret>())
             .putAllTiming(new HashMap<String, TimeSpan>())
-            .setServiceAccount("serviceAccount1079137720")
+            .setServiceAccount(ServiceAccountName.of("[PROJECT]", "[SERVICE_ACCOUNT]").toString())
             .build();
     mockCloudBuild.addResponse(expectedResponse);
 
@@ -332,7 +334,7 @@ public class CloudBuildClientTest {
             .addAllTags(new ArrayList<String>())
             .addAllSecrets(new ArrayList<Secret>())
             .putAllTiming(new HashMap<String, TimeSpan>())
-            .setServiceAccount("serviceAccount1079137720")
+            .setServiceAccount(ServiceAccountName.of("[PROJECT]", "[SERVICE_ACCOUNT]").toString())
             .build();
     mockCloudBuild.addResponse(expectedResponse);
 
@@ -396,7 +398,7 @@ public class CloudBuildClientTest {
             .addAllTags(new ArrayList<String>())
             .addAllSecrets(new ArrayList<Secret>())
             .putAllTiming(new HashMap<String, TimeSpan>())
-            .setServiceAccount("serviceAccount1079137720")
+            .setServiceAccount(ServiceAccountName.of("[PROJECT]", "[SERVICE_ACCOUNT]").toString())
             .build();
     Operation resultOperation =
         Operation.newBuilder()
@@ -447,7 +449,7 @@ public class CloudBuildClientTest {
         BuildTrigger.newBuilder()
             .setId("id3355")
             .setDescription("description-1724546052")
-            .setName("name3373707")
+            .setName(BuildTriggerName.of("[PROJECT]", "[TRIGGER]").toString())
             .addAllTags(new ArrayList<String>())
             .setTriggerTemplate(RepoSource.newBuilder().build())
             .setGithub(GitHubEventsConfig.newBuilder().build())
@@ -498,7 +500,7 @@ public class CloudBuildClientTest {
         BuildTrigger.newBuilder()
             .setId("id3355")
             .setDescription("description-1724546052")
-            .setName("name3373707")
+            .setName(BuildTriggerName.of("[PROJECT]", "[TRIGGER]").toString())
             .addAllTags(new ArrayList<String>())
             .setTriggerTemplate(RepoSource.newBuilder().build())
             .setGithub(GitHubEventsConfig.newBuilder().build())
@@ -630,7 +632,7 @@ public class CloudBuildClientTest {
         BuildTrigger.newBuilder()
             .setId("id3355")
             .setDescription("description-1724546052")
-            .setName("name3373707")
+            .setName(BuildTriggerName.of("[PROJECT]", "[TRIGGER]").toString())
             .addAllTags(new ArrayList<String>())
             .setTriggerTemplate(RepoSource.newBuilder().build())
             .setGithub(GitHubEventsConfig.newBuilder().build())
@@ -705,7 +707,7 @@ public class CloudBuildClientTest {
             .addAllTags(new ArrayList<String>())
             .addAllSecrets(new ArrayList<Secret>())
             .putAllTiming(new HashMap<String, TimeSpan>())
-            .setServiceAccount("serviceAccount1079137720")
+            .setServiceAccount(ServiceAccountName.of("[PROJECT]", "[SERVICE_ACCOUNT]").toString())
             .build();
     Operation resultOperation =
         Operation.newBuilder()
