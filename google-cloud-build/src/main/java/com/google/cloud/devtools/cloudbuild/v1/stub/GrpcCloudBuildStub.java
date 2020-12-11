@@ -269,11 +269,21 @@ public class GrpcCloudBuildStub extends CloudBuildStub {
         CloudBuildStubSettings.newBuilder().build(), clientContext, callableFactory);
   }
 
+  /**
+   * Constructs an instance of GrpcCloudBuildStub, using the given settings. This is protected so
+   * that it is easy to make a subclass, but otherwise, the static factory methods should be
+   * preferred.
+   */
   protected GrpcCloudBuildStub(CloudBuildStubSettings settings, ClientContext clientContext)
       throws IOException {
     this(settings, clientContext, new GrpcCloudBuildCallableFactory());
   }
 
+  /**
+   * Constructs an instance of GrpcCloudBuildStub, using the given settings. This is protected so
+   * that it is easy to make a subclass, but otherwise, the static factory methods should be
+   * preferred.
+   */
   protected GrpcCloudBuildStub(
       CloudBuildStubSettings settings,
       ClientContext clientContext,
@@ -290,6 +300,7 @@ public class GrpcCloudBuildStub extends CloudBuildStub {
                   @Override
                   public Map<String, String> extract(CreateBuildRequest request) {
                     ImmutableMap.Builder<String, String> params = ImmutableMap.builder();
+                    params.put("parent", String.valueOf(request.getParent()));
                     params.put("project_id", String.valueOf(request.getProjectId()));
                     return params.build();
                   }
@@ -304,6 +315,7 @@ public class GrpcCloudBuildStub extends CloudBuildStub {
                   public Map<String, String> extract(GetBuildRequest request) {
                     ImmutableMap.Builder<String, String> params = ImmutableMap.builder();
                     params.put("id", String.valueOf(request.getId()));
+                    params.put("name", String.valueOf(request.getName()));
                     params.put("project_id", String.valueOf(request.getProjectId()));
                     return params.build();
                   }
@@ -317,6 +329,7 @@ public class GrpcCloudBuildStub extends CloudBuildStub {
                   @Override
                   public Map<String, String> extract(ListBuildsRequest request) {
                     ImmutableMap.Builder<String, String> params = ImmutableMap.builder();
+                    params.put("parent", String.valueOf(request.getParent()));
                     params.put("project_id", String.valueOf(request.getProjectId()));
                     return params.build();
                   }
@@ -331,6 +344,7 @@ public class GrpcCloudBuildStub extends CloudBuildStub {
                   public Map<String, String> extract(CancelBuildRequest request) {
                     ImmutableMap.Builder<String, String> params = ImmutableMap.builder();
                     params.put("id", String.valueOf(request.getId()));
+                    params.put("name", String.valueOf(request.getName()));
                     params.put("project_id", String.valueOf(request.getProjectId()));
                     return params.build();
                   }
@@ -345,6 +359,7 @@ public class GrpcCloudBuildStub extends CloudBuildStub {
                   public Map<String, String> extract(RetryBuildRequest request) {
                     ImmutableMap.Builder<String, String> params = ImmutableMap.builder();
                     params.put("id", String.valueOf(request.getId()));
+                    params.put("name", String.valueOf(request.getName()));
                     params.put("project_id", String.valueOf(request.getProjectId()));
                     return params.build();
                   }
