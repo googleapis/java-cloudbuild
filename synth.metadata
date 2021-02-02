@@ -11,7 +11,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/java-cloudbuild.git",
-        "sha": "3984c0e1a8897452c93b65b9f1dae66e86929abb"
+        "sha": "9625f92a77dba52d6dc2c019bdbaa438f2787316"
       }
     },
     {
