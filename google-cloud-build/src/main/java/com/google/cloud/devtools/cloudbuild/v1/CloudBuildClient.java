@@ -490,6 +490,14 @@ public class CloudBuildClient implements BackgroundResource {
    *
    * <pre>{@code
    * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
+   *   ListBuildsRequest request =
+   *       ListBuildsRequest.newBuilder()
+   *           .setParent(BuildName.ofProjectBuildName("[PROJECT]", "[BUILD]").toString())
+   *           .setProjectId("projectId-894832108")
+   *           .setPageSize(883849137)
+   *           .setPageToken("pageToken873572522")
+   *           .setFilter("filter-1274492040")
+   *           .build();
    *   while (true) {
    *     ListBuildsResponse response = cloudBuildClient.listBuildsCallable().call(request);
    *     for (Build element : response.getResponsesList()) {
@@ -1054,6 +1062,12 @@ public class CloudBuildClient implements BackgroundResource {
    *
    * <pre>{@code
    * try (CloudBuildClient cloudBuildClient = CloudBuildClient.create()) {
+   *   ListBuildTriggersRequest request =
+   *       ListBuildTriggersRequest.newBuilder()
+   *           .setProjectId("projectId-894832108")
+   *           .setPageSize(883849137)
+   *           .setPageToken("pageToken873572522")
+   *           .build();
    *   while (true) {
    *     ListBuildTriggersResponse response =
    *         cloudBuildClient.listBuildTriggersCallable().call(request);

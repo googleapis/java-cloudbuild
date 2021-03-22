@@ -84,7 +84,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
 
   @Override
   public void createBuild(CreateBuildRequest request, StreamObserver<Operation> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof Operation) {
       requests.add(request);
       responseObserver.onNext(((Operation) response));
@@ -96,7 +96,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method CreateBuild, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   Operation.class.getName(),
                   Exception.class.getName())));
     }
@@ -104,7 +104,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
 
   @Override
   public void getBuild(GetBuildRequest request, StreamObserver<Build> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof Build) {
       requests.add(request);
       responseObserver.onNext(((Build) response));
@@ -116,7 +116,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method GetBuild, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   Build.class.getName(),
                   Exception.class.getName())));
     }
@@ -125,7 +125,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void listBuilds(
       ListBuildsRequest request, StreamObserver<ListBuildsResponse> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof ListBuildsResponse) {
       requests.add(request);
       responseObserver.onNext(((ListBuildsResponse) response));
@@ -137,7 +137,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method ListBuilds, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   ListBuildsResponse.class.getName(),
                   Exception.class.getName())));
     }
@@ -145,7 +145,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
 
   @Override
   public void cancelBuild(CancelBuildRequest request, StreamObserver<Build> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof Build) {
       requests.add(request);
       responseObserver.onNext(((Build) response));
@@ -157,7 +157,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method CancelBuild, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   Build.class.getName(),
                   Exception.class.getName())));
     }
@@ -165,7 +165,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
 
   @Override
   public void retryBuild(RetryBuildRequest request, StreamObserver<Operation> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof Operation) {
       requests.add(request);
       responseObserver.onNext(((Operation) response));
@@ -177,7 +177,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method RetryBuild, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   Operation.class.getName(),
                   Exception.class.getName())));
     }
@@ -186,7 +186,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void createBuildTrigger(
       CreateBuildTriggerRequest request, StreamObserver<BuildTrigger> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof BuildTrigger) {
       requests.add(request);
       responseObserver.onNext(((BuildTrigger) response));
@@ -198,7 +198,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method CreateBuildTrigger, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   BuildTrigger.class.getName(),
                   Exception.class.getName())));
     }
@@ -207,7 +207,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void getBuildTrigger(
       GetBuildTriggerRequest request, StreamObserver<BuildTrigger> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof BuildTrigger) {
       requests.add(request);
       responseObserver.onNext(((BuildTrigger) response));
@@ -219,7 +219,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method GetBuildTrigger, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   BuildTrigger.class.getName(),
                   Exception.class.getName())));
     }
@@ -229,7 +229,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   public void listBuildTriggers(
       ListBuildTriggersRequest request,
       StreamObserver<ListBuildTriggersResponse> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof ListBuildTriggersResponse) {
       requests.add(request);
       responseObserver.onNext(((ListBuildTriggersResponse) response));
@@ -241,7 +241,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method ListBuildTriggers, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   ListBuildTriggersResponse.class.getName(),
                   Exception.class.getName())));
     }
@@ -250,7 +250,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void deleteBuildTrigger(
       DeleteBuildTriggerRequest request, StreamObserver<Empty> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof Empty) {
       requests.add(request);
       responseObserver.onNext(((Empty) response));
@@ -262,7 +262,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method DeleteBuildTrigger, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   Empty.class.getName(),
                   Exception.class.getName())));
     }
@@ -271,7 +271,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void updateBuildTrigger(
       UpdateBuildTriggerRequest request, StreamObserver<BuildTrigger> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof BuildTrigger) {
       requests.add(request);
       responseObserver.onNext(((BuildTrigger) response));
@@ -283,7 +283,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method UpdateBuildTrigger, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   BuildTrigger.class.getName(),
                   Exception.class.getName())));
     }
@@ -292,7 +292,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void runBuildTrigger(
       RunBuildTriggerRequest request, StreamObserver<Operation> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof Operation) {
       requests.add(request);
       responseObserver.onNext(((Operation) response));
@@ -304,7 +304,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method RunBuildTrigger, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   Operation.class.getName(),
                   Exception.class.getName())));
     }
@@ -313,7 +313,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void createWorkerPool(
       CreateWorkerPoolRequest request, StreamObserver<WorkerPool> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof WorkerPool) {
       requests.add(request);
       responseObserver.onNext(((WorkerPool) response));
@@ -325,7 +325,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method CreateWorkerPool, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   WorkerPool.class.getName(),
                   Exception.class.getName())));
     }
@@ -334,7 +334,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void getWorkerPool(
       GetWorkerPoolRequest request, StreamObserver<WorkerPool> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof WorkerPool) {
       requests.add(request);
       responseObserver.onNext(((WorkerPool) response));
@@ -346,7 +346,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method GetWorkerPool, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   WorkerPool.class.getName(),
                   Exception.class.getName())));
     }
@@ -355,7 +355,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void deleteWorkerPool(
       DeleteWorkerPoolRequest request, StreamObserver<Empty> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof Empty) {
       requests.add(request);
       responseObserver.onNext(((Empty) response));
@@ -367,7 +367,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method DeleteWorkerPool, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   Empty.class.getName(),
                   Exception.class.getName())));
     }
@@ -376,7 +376,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void updateWorkerPool(
       UpdateWorkerPoolRequest request, StreamObserver<WorkerPool> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof WorkerPool) {
       requests.add(request);
       responseObserver.onNext(((WorkerPool) response));
@@ -388,7 +388,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method UpdateWorkerPool, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   WorkerPool.class.getName(),
                   Exception.class.getName())));
     }
@@ -397,7 +397,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
   @Override
   public void listWorkerPools(
       ListWorkerPoolsRequest request, StreamObserver<ListWorkerPoolsResponse> responseObserver) {
-    Object response = responses.remove();
+    Object response = responses.poll();
     if (response instanceof ListWorkerPoolsResponse) {
       requests.add(request);
       responseObserver.onNext(((ListWorkerPoolsResponse) response));
@@ -409,7 +409,7 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
           new IllegalArgumentException(
               String.format(
                   "Unrecognized response type %s for method ListWorkerPools, expected %s or %s",
-                  response.getClass().getName(),
+                  response == null ? "null" : response.getClass().getName(),
                   ListWorkerPoolsResponse.class.getName(),
                   Exception.class.getName())));
     }
