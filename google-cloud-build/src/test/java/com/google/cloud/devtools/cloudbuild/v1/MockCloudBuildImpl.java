@@ -35,6 +35,8 @@ import com.google.cloudbuild.v1.ListBuildsRequest;
 import com.google.cloudbuild.v1.ListBuildsResponse;
 import com.google.cloudbuild.v1.ListWorkerPoolsRequest;
 import com.google.cloudbuild.v1.ListWorkerPoolsResponse;
+import com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest;
+import com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse;
 import com.google.cloudbuild.v1.RetryBuildRequest;
 import com.google.cloudbuild.v1.RunBuildTriggerRequest;
 import com.google.cloudbuild.v1.UpdateBuildTriggerRequest;
@@ -306,6 +308,28 @@ public class MockCloudBuildImpl extends CloudBuildImplBase {
                   "Unrecognized response type %s for method RunBuildTrigger, expected %s or %s",
                   response == null ? "null" : response.getClass().getName(),
                   Operation.class.getName(),
+                  Exception.class.getName())));
+    }
+  }
+
+  @Override
+  public void receiveTriggerWebhook(
+      ReceiveTriggerWebhookRequest request,
+      StreamObserver<ReceiveTriggerWebhookResponse> responseObserver) {
+    Object response = responses.poll();
+    if (response instanceof ReceiveTriggerWebhookResponse) {
+      requests.add(request);
+      responseObserver.onNext(((ReceiveTriggerWebhookResponse) response));
+      responseObserver.onCompleted();
+    } else if (response instanceof Exception) {
+      responseObserver.onError(((Exception) response));
+    } else {
+      responseObserver.onError(
+          new IllegalArgumentException(
+              String.format(
+                  "Unrecognized response type %s for method ReceiveTriggerWebhook, expected %s or %s",
+                  response == null ? "null" : response.getClass().getName(),
+                  ReceiveTriggerWebhookResponse.class.getName(),
                   Exception.class.getName())));
     }
   }

@@ -505,6 +505,55 @@ public final class CloudBuildGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<
+          com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest,
+          com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>
+      getReceiveTriggerWebhookMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ReceiveTriggerWebhook",
+      requestType = com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest.class,
+      responseType = com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<
+          com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest,
+          com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>
+      getReceiveTriggerWebhookMethod() {
+    io.grpc.MethodDescriptor<
+            com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest,
+            com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>
+        getReceiveTriggerWebhookMethod;
+    if ((getReceiveTriggerWebhookMethod = CloudBuildGrpc.getReceiveTriggerWebhookMethod) == null) {
+      synchronized (CloudBuildGrpc.class) {
+        if ((getReceiveTriggerWebhookMethod = CloudBuildGrpc.getReceiveTriggerWebhookMethod)
+            == null) {
+          CloudBuildGrpc.getReceiveTriggerWebhookMethod =
+              getReceiveTriggerWebhookMethod =
+                  io.grpc.MethodDescriptor
+                      .<com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest,
+                          com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>
+                          newBuilder()
+                      .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+                      .setFullMethodName(
+                          generateFullMethodName(SERVICE_NAME, "ReceiveTriggerWebhook"))
+                      .setSampledToLocalTracing(true)
+                      .setRequestMarshaller(
+                          io.grpc.protobuf.ProtoUtils.marshaller(
+                              com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest
+                                  .getDefaultInstance()))
+                      .setResponseMarshaller(
+                          io.grpc.protobuf.ProtoUtils.marshaller(
+                              com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse
+                                  .getDefaultInstance()))
+                      .setSchemaDescriptor(
+                          new CloudBuildMethodDescriptorSupplier("ReceiveTriggerWebhook"))
+                      .build();
+        }
+      }
+    }
+    return getReceiveTriggerWebhookMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<
           com.google.cloudbuild.v1.CreateWorkerPoolRequest, com.google.cloudbuild.v1.WorkerPool>
       getCreateWorkerPoolMethod;
 
@@ -960,6 +1009,22 @@ public final class CloudBuildGrpc {
      *
      *
      * <pre>
+     * ReceiveTriggerWebhook [Experimental] is called when the API receives a
+     * webhook request targeted at a specific trigger.
+     * </pre>
+     */
+    public void receiveTriggerWebhook(
+        com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest request,
+        io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>
+            responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(
+          getReceiveTriggerWebhookMethod(), responseObserver);
+    }
+
+    /**
+     *
+     *
+     * <pre>
      * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
      * This API is experimental.
      * </pre>
@@ -1102,6 +1167,13 @@ public final class CloudBuildGrpc {
                   new MethodHandlers<
                       com.google.cloudbuild.v1.RunBuildTriggerRequest,
                       com.google.longrunning.Operation>(this, METHODID_RUN_BUILD_TRIGGER)))
+          .addMethod(
+              getReceiveTriggerWebhookMethod(),
+              io.grpc.stub.ServerCalls.asyncUnaryCall(
+                  new MethodHandlers<
+                      com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest,
+                      com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>(
+                      this, METHODID_RECEIVE_TRIGGER_WEBHOOK)))
           .addMethod(
               getCreateWorkerPoolMethod(),
               io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1357,6 +1429,24 @@ public final class CloudBuildGrpc {
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getRunBuildTriggerMethod(), getCallOptions()),
+          request,
+          responseObserver);
+    }
+
+    /**
+     *
+     *
+     * <pre>
+     * ReceiveTriggerWebhook [Experimental] is called when the API receives a
+     * webhook request targeted at a specific trigger.
+     * </pre>
+     */
+    public void receiveTriggerWebhook(
+        com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest request,
+        io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>
+            responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getReceiveTriggerWebhookMethod(), getCallOptions()),
           request,
           responseObserver);
     }
@@ -1650,6 +1740,20 @@ public final class CloudBuildGrpc {
      *
      *
      * <pre>
+     * ReceiveTriggerWebhook [Experimental] is called when the API receives a
+     * webhook request targeted at a specific trigger.
+     * </pre>
+     */
+    public com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse receiveTriggerWebhook(
+        com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getReceiveTriggerWebhookMethod(), getCallOptions(), request);
+    }
+
+    /**
+     *
+     *
+     * <pre>
      * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
      * This API is experimental.
      * </pre>
@@ -1920,6 +2024,21 @@ public final class CloudBuildGrpc {
      *
      *
      * <pre>
+     * ReceiveTriggerWebhook [Experimental] is called when the API receives a
+     * webhook request targeted at a specific trigger.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<
+            com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>
+        receiveTriggerWebhook(com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getReceiveTriggerWebhookMethod(), getCallOptions()), request);
+    }
+
+    /**
+     *
+     *
+     * <pre>
      * Creates a `WorkerPool` to run the builds, and returns the new worker pool.
      * This API is experimental.
      * </pre>
@@ -1999,11 +2118,12 @@ public final class CloudBuildGrpc {
   private static final int METHODID_DELETE_BUILD_TRIGGER = 8;
   private static final int METHODID_UPDATE_BUILD_TRIGGER = 9;
   private static final int METHODID_RUN_BUILD_TRIGGER = 10;
-  private static final int METHODID_CREATE_WORKER_POOL = 11;
-  private static final int METHODID_GET_WORKER_POOL = 12;
-  private static final int METHODID_DELETE_WORKER_POOL = 13;
-  private static final int METHODID_UPDATE_WORKER_POOL = 14;
-  private static final int METHODID_LIST_WORKER_POOLS = 15;
+  private static final int METHODID_RECEIVE_TRIGGER_WEBHOOK = 11;
+  private static final int METHODID_CREATE_WORKER_POOL = 12;
+  private static final int METHODID_GET_WORKER_POOL = 13;
+  private static final int METHODID_DELETE_WORKER_POOL = 14;
+  private static final int METHODID_UPDATE_WORKER_POOL = 15;
+  private static final int METHODID_LIST_WORKER_POOLS = 16;
 
   private static final class MethodHandlers<Req, Resp>
       implements io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2081,6 +2201,12 @@ public final class CloudBuildGrpc {
           serviceImpl.runBuildTrigger(
               (com.google.cloudbuild.v1.RunBuildTriggerRequest) request,
               (io.grpc.stub.StreamObserver<com.google.longrunning.Operation>) responseObserver);
+          break;
+        case METHODID_RECEIVE_TRIGGER_WEBHOOK:
+          serviceImpl.receiveTriggerWebhook(
+              (com.google.cloudbuild.v1.ReceiveTriggerWebhookRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.cloudbuild.v1.ReceiveTriggerWebhookResponse>)
+                  responseObserver);
           break;
         case METHODID_CREATE_WORKER_POOL:
           serviceImpl.createWorkerPool(
@@ -2183,6 +2309,7 @@ public final class CloudBuildGrpc {
                       .addMethod(getDeleteBuildTriggerMethod())
                       .addMethod(getUpdateBuildTriggerMethod())
                       .addMethod(getRunBuildTriggerMethod())
+                      .addMethod(getReceiveTriggerWebhookMethod())
                       .addMethod(getCreateWorkerPoolMethod())
                       .addMethod(getGetWorkerPoolMethod())
                       .addMethod(getDeleteWorkerPoolMethod())
