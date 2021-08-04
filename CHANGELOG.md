@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0](https://www.github.com/googleapis/java-cloudbuild/compare/v2.6.3...v2.7.0) (2021-08-04)
+
+
+### Features
+
+* configure initial sp version ([#550](https://www.github.com/googleapis/java-cloudbuild/issues/550)) ([f42dd28](https://www.github.com/googleapis/java-cloudbuild/commit/f42dd28c818b4fd06965487576474533941f290e))
+
 ### [2.6.3](https://www.github.com/googleapis/java-cloudbuild/compare/v2.6.2...v2.6.3) (2021-07-15)
 
 
