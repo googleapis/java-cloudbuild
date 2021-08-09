@@ -41,7 +41,7 @@ If you are using Maven without BOM, add this to your dependencies:
 <dependency>
   <groupId>com.google.cloud</groupId>
   <artifactId>google-cloud-build</artifactId>
-  <version>2.6.3</version>
+  <version>3.0.0</version>
 </dependency>
 
 ```
@@ -56,13 +56,13 @@ compile 'com.google.cloud:google-cloud-build'
 If you are using Gradle without BOM, add this to your dependencies
 
 ```Groovy
-compile 'com.google.cloud:google-cloud-build:2.7.0'
+compile 'com.google.cloud:google-cloud-build:3.0.0'
 ```
 
 If you are using SBT, add this to your dependencies
 
 ```Scala
-libraryDependencies += "com.google.cloud" % "google-cloud-build" % "2.7.0"
+libraryDependencies += "com.google.cloud" % "google-cloud-build" % "3.0.0"
 ```
 
 ## Authentication
