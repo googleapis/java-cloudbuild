@@ -4,3 +4,5 @@
 google-cloud-build:3.5.6:3.5.7-SNAPSHOT
 grpc-google-cloud-build-v1:3.5.6:3.5.7-SNAPSHOT
 proto-google-cloud-build-v1:3.5.6:3.5.7-SNAPSHOT
+proto-google-cloud-build-v2:3.5.6:3.5.7-SNAPSHOT
+grpc-google-cloud-build-v2:3.5.6:3.5.7-SNAPSHOT
