@@ -15,7 +15,6 @@
  */
 package google.devtools.cloudbuild.v2;
 
-
 /**
  *
  *
